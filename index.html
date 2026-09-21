@@ -3,255 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Para Mi Miquita - Universo</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: #030008;
-      overflow: hidden;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-
-    canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-    }
-
-    .header-title {
-      position: absolute;
-      top: 25px;
-      z-index: 10;
-      font-size: 1.6rem;
-      letter-spacing: 4px;
-      color: #ff80bf;
-      text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f, 0 0 30px #ff007f;
-      text-transform: uppercase;
-      font-weight: 800;
-      pointer-events: none;
-    }
-
-    /* Elementos flotantes interactivos alrededor del corazón */
-    .floating-item {
-      position: absolute;
-      z-index: 10;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      pointer-events: none;
-      animation: floatMotion 5s ease-in-out infinite alternate;
-    }
-
-    .floating-item img {
-      width: 45px;
-      height: 45px;
-      border-radius: 8px;
-      border: 2px solid rgba(255, 105, 180, 0.8);
-      box-shadow: 0 0 15px rgba(255, 0, 128, 0.8);
-      object-fit: cover;
-      margin-bottom: 5px;
-    }
-
-    .floating-item span {
-      font-size: 0.85rem;
-      color: #ffffff;
-      text-shadow: 0 0 8px #ff007f, 0 0 15px #ff007f;
-      font-weight: 600;
-    }
-
-    @keyframes floatMotion {
-      0% { transform: translateY(0px) rotate(-2deg); }
-      50% { transform: translateY(-12px) rotate(2deg); }
-      100% { transform: translateY(0px) rotate(-2deg); }
-    }
-
-    .main-text {
-      position: absolute;
-      z-index: 10;
-      font-size: 2.3rem;
-      font-weight: 900;
-      color: #ffffff;
-      text-shadow: 0 0 10px #ffffff, 0 0 20px #ff007f, 0 0 35px #ff007f, 0 0 50px #ff007f;
-      text-align: center;
-      pointer-events: none;
-      animation: pulseText 2s ease-in-out infinite alternate;
-    }
-
-    @keyframes pulseText {
-      0% { transform: scale(0.95); text-shadow: 0 0 10px #ff007f; }
-      100% { transform: scale(1.08); text-shadow: 0 0 25px #ff007f, 0 0 45px #ff007f; }
-    }
-  </style>
+  <title>Para Mia 🌻</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <div class="header-title">PARA TI</div>
+  <section class="card" id="step1">
+    <div class="sparkle">✨</div>
+    <h2>Para</h2>
+    <h1 class="name">Mia</h1>
+    
+    <div class="initials-badge">
+      <span>M</span> ❤️ <span>M</span>
+    </div>
 
-  <!-- Texto flotante central actualizado -->
-  <div class="main-text">Te quiero miquita</div>
+    <div class="snoopy-container">
+      <img src="https://i.ibb.co/C0yv35S/snoopy-flowers.png" alt="Snoopy con flores" class="snoopy-img">
+    </div>
 
-  <!-- Frases e imágenes flotantes al estilo del video -->
-  <div class="floating-item" style="top: 25%; left: 15%; animation-delay: 0s;">
-    <img src="https://picsum.photos/100/100?random=1" alt="Foto">
-    <span>Te adoro</span>
-  </div>
+    <button class="btn-main" onclick="nextStep(2)">VER REGALO 💛</button>
+  </section>
 
-  <div class="floating-item" style="top: 22%; right: 18%; animation-delay: 1s;">
-    <img src="https://picsum.photos/100/100?random=2" alt="Foto">
-    <span>Amor de mi vida</span>
-  </div>
+  <section class="card hidden" id="step2">
+    <div class="snoopy-small">
+      <img src="https://i.ibb.co/3s8vR0D/snoopy-happy.png" alt="Snoopy feliz">
+    </div>
 
-  <div class="floating-item" style="top: 65%; left: 12%; animation-delay: 2s;">
-    <span>Eres única</span>
-  </div>
+    <p class="quote">
+      "Aunque la distancia exista, tus flores amarillas siempre llegarán."
+    </p>
 
-  <div class="floating-item" style="top: 68%; right: 15%; animation-delay: 1.5s;">
-    <span>Me encantas</span>
-  </div>
+    <div class="flower-bouquet">
+      💐
+    </div>
 
-  <div class="floating-item" style="top: 45%; right: 8%; animation-delay: 0.5s;">
-    <img src="https://picsum.photos/100/100?random=3" alt="Foto">
-    <span>Eres mi universo</span>
-  </div>
+    <button class="btn-arrow" onclick="nextStep(3)">⬇️</button>
+  </section>
 
-  <canvas id="universe"></canvas>
+  <section class="card hidden" id="step3">
+    <div class="snoopy-hug">
+      <img src="https://i.ibb.co/4T7gG0k/snoopy-hug.png" alt="Snoopy abrazando">
+    </div>
+
+    <p class="quote">
+      "Cada flor es un pequeño recordatorio de lo especial que eres para mí.<br><br>
+      Y recuerdes que alguien está pensando en ti."
+    </p>
+
+    <div class="sunflowers-bg">🌻🌻🌻</div>
+
+    <button class="btn-arrow" onclick="nextStep(4)">⬇️</button>
+  </section>
+
+  <section class="card hidden" id="step4">
+    <div class="snoopy-writer">
+      <span class="noted-tag">Noted 📝</span>
+      <p>Tengo una sorpresa más para ti...</p>
+    </div>
+
+    <div class="envelope" onclick="nextStep(5)">
+      ✉️
+      <span class="sunflower-seal">🌻</span>
+      <p class="tap-hint">Da clic sobre la carta y descúbrelo</p>
+    </div>
+  </section>
+
+  <section class="card letter-card hidden" id="step5">
+    <div class="banner-hearts">❤️❤️❤️❤️❤️</div>
+    
+    <div class="letter-header">
+      <p><strong>De:</strong> Melwyn</p>
+      <p><strong>Para:</strong> Mia</p>
+    </div>
+
+    <h3>Una carta para ti</h3>
+
+    <div class="letter-body">
+      <p>
+        Los momentos más bonitos no siempre son los más grandes. 
+        A veces son las risas, las conversaciones largas, los pequeños detalles o simplemente compartir tiempo juntos.
+      </p>
+      <p>
+        Cada recuerdo contigo se guarda como algo especial. 
+        Y espero que todavía nos queden muchísimos momentos más por vivir.
+      </p>
+    </div>
+
+    <div class="letter-footer">
+      🌻 💛 🌻
+    </div>
+  </section>
 
   <script>
-    const canvas = document.getElementById('universe');
-    const ctx = canvas.getContext('2d');
-
-    let width, height;
-    let particles = [];
-    let heartParticles = [];
-    let angle = 0;
-
-    function resize() {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
+    function nextStep(stepNumber) {
+      document.querySelectorAll('.card').forEach(card => card.classList.add('hidden'));
+      document.getElementById('step' + stepNumber).classList.remove('hidden');
+      window.scrollTo(0, 0);
     }
-
-    window.addEventListener('resize', resize);
-    resize();
-
-    // Ecuación matemática del corazón
-    function getHeartPosition(t) {
-      const x = 16 * Math.pow(Math.sin(t), 3);
-      const y = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
-      return { x, y };
-    }
-
-    // Partículas de fondo (estrellas y polvo cósmico)
-    class Star {
-      constructor() {
-        this.reset();
-      }
-
-      reset() {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
-        this.size = Math.random() * 2;
-        this.alpha = Math.random();
-        this.speed = Math.random() * 0.02 + 0.005;
-        this.color = Math.random() > 0.3 ? '#ffffff' : '#ff80bf';
-      }
-
-      update() {
-        this.alpha += this.speed;
-        if (this.alpha > 1 || this.alpha < 0) {
-          this.speed = -this.speed;
-        }
-      }
-
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = this.color;
-        ctx.globalAlpha = Math.abs(this.alpha);
-        ctx.fill();
-        ctx.globalAlpha = 1;
-      }
-    }
-
-    // Partículas del corazón con movimiento constante
-    class HeartParticle {
-      constructor(t) {
-        this.t = t;
-        this.baseScale = Math.min(width, height) / 45;
-        this.offset = (Math.random() - 0.5) * 8;
-        this.speed = Math.random() * 0.02 + 0.01;
-        this.size = Math.random() * 2.5 + 1;
-        this.color = `hsl(${Math.random() * 50 + 310}, 100%, ${Math.random() * 30 + 60}%)`;
-      }
-
-      update(beatScale) {
-        this.t += 0.005; // Movimiento continuo a lo largo del contorno
-        const pos = getHeartPosition(this.t);
-        const scale = this.baseScale * beatScale;
-
-        this.x = width / 2 + pos.x * scale + this.offset;
-        this.y = height / 2 + pos.y * scale + this.offset;
-      }
-
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = this.color;
-        ctx.shadowBlur = 12;
-        ctx.shadowColor = '#ff007f';
-        ctx.fill();
-        ctx.shadowBlur = 0;
-      }
-    }
-
-    // Crear 400 estrellas de fondo
-    for (let i = 0; i < 400; i++) {
-      particles.push(new Star());
-    }
-
-    // Crear 700 partículas para el corazón
-    for (let i = 0; i < 700; i++) {
-      heartParticles.push(new HeartParticle((Math.PI * 2 / 700) * i));
-    }
-
-    function animate() {
-      // Fondo muy oscuro con estela leve para movimiento suave
-      ctx.fillStyle = 'rgba(3, 0, 8, 0.25)';
-      ctx.fillRect(0, 0, width, height);
-
-      // Efecto de latido pulsante
-      angle += 0.04;
-      const beatScale = 1 + Math.sin(angle) * 0.08;
-
-      // Dibujar estrellas
-      particles.forEach(p => {
-        p.update();
-        p.draw();
-      });
-
-      // Dibujar corazón animado
-      heartParticles.forEach(hp => {
-        hp.update(beatScale);
-        hp.draw();
-      });
-
-      requestAnimationFrame(animate);
-    }
-
-    animate();
   </script>
 </body>
 </html>
