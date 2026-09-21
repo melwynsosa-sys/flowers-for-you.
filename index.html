@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -9,25 +9,63 @@
 </head>
 <body>
 
+  <!-- PÉTALOS CAYENDO DE FONDO -->
+  <div class="petals-container">
+    <div class="petal">🍃</div>
+    <div class="petal">💛</div>
+    <div class="petal">✨</div>
+    <div class="petal">🍃</div>
+    <div class="petal">💛</div>
+  </div>
+
+  <!-- PANTALLA 1: INICIO -->
   <section class="card" id="step1">
     <div class="sparkle">✨</div>
-    <h2>Para</h2>
+    <h2 class="title-para">Para</h2>
     <h1 class="name">Mia</h1>
     
     <div class="initials-badge">
-      <span>M</span> ❤️ <span>M</span>
+      <span class="init">M</span>
+      <div class="heart-ring">💛</div>
+      <span class="init">M</span>
     </div>
 
-    <div class="snoopy-container">
-      <img src="https://i.ibb.co/C0yv35S/snoopy-flowers.png" alt="Snoopy con flores" class="snoopy-img">
+    <!-- SNOOPY DIBUJADO EN SVG -->
+    <div class="snoopy-illustration">
+      <svg class="snoopy-svg" viewBox="0 0 200 200">
+        <!-- Pastito -->
+        <ellipse cx="100" cy="180" rx="80" ry="15" fill="#70e000"/>
+        <!-- Flores -->
+        <circle cx="50" cy="150" r="12" fill="#ffb703"/>
+        <circle cx="50" cy="150" r="5" fill="#fb8500"/>
+        <circle cx="150" cy="155" r="10" fill="#ffb703"/>
+        <circle cx="150" cy="155" r="4" fill="#fb8500"/>
+        <!-- Cuerpo de Snoopy -->
+        <ellipse cx="100" cy="140" rx="25" ry="30" fill="#ffffff" stroke="#2b2b2b" stroke-width="3"/>
+        <!-- Cabeza -->
+        <ellipse cx="100" cy="95" rx="30" ry="25" fill="#ffffff" stroke="#2b2b2b" stroke-width="3"/>
+        <!-- Oreja -->
+        <ellipse cx="78" cy="98" rx="8" ry="16" fill="#2b2b2b"/>
+        <!-- Nariz -->
+        <ellipse cx="125" cy="95" rx="6" ry="5" fill="#2b2b2b"/>
+        <!-- Ojo cerrado feliz -->
+        <path d="M 100 88 Q 105 82 110 88" fill="transparent" stroke="#2b2b2b" stroke-width="3" stroke-linecap="round"/>
+        <!-- Sonrisa -->
+        <path d="M 105 102 Q 115 108 122 100" fill="transparent" stroke="#2b2b2b" stroke-width="3" stroke-linecap="round"/>
+        <!-- Collar rojo -->
+        <rect x="88" y="115" width="24" height="5" fill="#e63946" rx="2"/>
+        <!-- Manos juntas -->
+        <ellipse cx="108" cy="135" rx="8" ry="6" fill="#ffffff" stroke="#2b2b2b" stroke-width="2"/>
+      </svg>
     </div>
 
-    <button class="btn-main" onclick="nextStep(2)">VER REGALO 💛</button>
+    <button class="btn-main" onclick="nextStep(2)">VER REGALO</button>
   </section>
 
+  <!-- PANTALLA 2: MENSAJE 1 -->
   <section class="card hidden" id="step2">
-    <div class="snoopy-small">
-      <img src="https://i.ibb.co/3s8vR0D/snoopy-happy.png" alt="Snoopy feliz">
+    <div class="snoopy-icon-top">
+      🐶🎀
     </div>
 
     <p class="quote">
@@ -35,15 +73,16 @@
     </p>
 
     <div class="flower-bouquet">
-      💐
+      🌻💐🌻
     </div>
 
     <button class="btn-arrow" onclick="nextStep(3)">⬇️</button>
   </section>
 
+  <!-- PANTALLA 3: MENSAJE 2 -->
   <section class="card hidden" id="step3">
-    <div class="snoopy-hug">
-      <img src="https://i.ibb.co/4T7gG0k/snoopy-hug.png" alt="Snoopy abrazando">
+    <div class="snoopy-hug-icon">
+      🐶🤗🐥
     </div>
 
     <p class="quote">
@@ -51,33 +90,41 @@
       Y recuerdes que alguien está pensando en ti."
     </p>
 
-    <div class="sunflowers-bg">🌻🌻🌻</div>
+    <div class="sunflowers-row">
+      🌻🌻🌻🌻
+    </div>
 
     <button class="btn-arrow" onclick="nextStep(4)">⬇️</button>
   </section>
 
+  <!-- PANTALLA 4: AVISO CARTA -->
   <section class="card hidden" id="step4">
-    <div class="snoopy-writer">
-      <span class="noted-tag">Noted 📝</span>
-      <p>Tengo una sorpresa más para ti...</p>
+    <div class="snoopy-noted">
+      <div class="noted-badge">Noted 📝</div>
+      <p class="surprise-text">Tengo una sorpresa más para ti...</p>
     </div>
 
-    <div class="envelope" onclick="nextStep(5)">
-      ✉️
-      <span class="sunflower-seal">🌻</span>
+    <div class="envelope-box" onclick="nextStep(5)">
+      <div class="envelope-graphic">
+        ✉️
+        <span class="seal">🌻</span>
+      </div>
       <p class="tap-hint">Da clic sobre la carta y descúbrelo</p>
     </div>
   </section>
 
+  <!-- PANTALLA 5: CARTA DE AMOR -->
   <section class="card letter-card hidden" id="step5">
-    <div class="banner-hearts">❤️❤️❤️❤️❤️</div>
+    <div class="garland">
+      💖 💖 💖 💖 💖
+    </div>
     
     <div class="letter-header">
       <p><strong>De:</strong> Melwyn</p>
       <p><strong>Para:</strong> Mia</p>
     </div>
 
-    <h3>Una carta para ti</h3>
+    <h3 class="letter-title">Una carta para ti</h3>
 
     <div class="letter-body">
       <p>
