@@ -1,132 +1,234 @@
-* {
+ * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body {
-  background-color: #fefae0;
-  background-image: radial-gradient(#ffe066 1px, transparent 1px);
-  background-size: 20px 20px;
+  background-color: #fffbe6;
+  background-image: 
+    radial-gradient(#f9dcc4 1.5px, transparent 1.5px),
+    radial-gradient(#fefae0 1.5px, #fffbe6 1.5px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
   font-family: 'Quicksand', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   color: #4a3e3d;
-  padding: 20px;
+  padding: 15px;
+  overflow-x: hidden;
+  position: relative;
 }
 
-.card {
-  background: #fffdf0;
-  border: 2px solid #f4d35e;
-  border-radius: 20px;
+/* EFECTO DE PÉTALOS CAYENDO */
+.petals-container {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 380px;
-  padding: 30px 20px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.petal {
+  position: absolute;
+  top: -10%;
+  font-size: 1.5rem;
+  animation: fall 7s linear infinite;
+  opacity: 0.7;
+}
+
+.petal:nth-child(1) { left: 10%; animation-delay: 0s; }
+.petal:nth-child(2) { left: 30%; animation-delay: 2s; }
+.petal:nth-child(3) { left: 55%; animation-delay: 4s; }
+.petal:nth-child(4) { left: 75%; animation-delay: 1s; }
+.petal:nth-child(5) { left: 90%; animation-delay: 3s; }
+
+@keyframes fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+}
+
+/* TARJETA PRINCIPAL */
+.card {
+  background: #ffffff;
+  border: 2px solid #ffe3a8;
+  border-radius: 25px;
+  width: 100%;
+  max-width: 360px;
+  padding: 25px 20px;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(212, 163, 89, 0.2);
+  box-shadow: 0 12px 30px rgba(244, 162, 97, 0.15);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
-  animation: fadeIn 0.5s ease-in-out;
+  gap: 12px;
+  position: relative;
+  z-index: 20;
+  animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .hidden {
   display: none !important;
 }
 
-/* Encabezados y Texto */
-h1.name {
-  font-family: 'Caveat', cursive;
-  font-size: 3.2rem;
-  color: #2b9348;
-  margin-top: -10px;
+/* TEXTOS Y TÍTULOS */
+.sparkle {
+  color: #f4a261;
+  font-size: 1.2rem;
 }
 
-h2 {
+.title-para {
   font-family: 'Caveat', cursive;
-  font-size: 2rem;
-  color: #d4a373;
+  font-size: 2.2rem;
+  color: #8ab17d;
+  margin-bottom: -10px;
+}
+
+h1.name {
+  font-family: 'Caveat', cursive;
+  font-size: 3.5rem;
+  color: #2a9d8f;
+  margin-bottom: 5px;
 }
 
 .quote {
   font-family: 'Caveat', cursive;
-  font-size: 1.6rem;
-  line-height: 1.4;
+  font-size: 1.7rem;
+  line-height: 1.35;
   color: #3d405b;
+  margin: 10px 0;
 }
 
-/* Iniciales M & M */
+/* INICIALES M M */
 .initials-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   background: #fff;
   border: 2px dashed #f4a261;
-  padding: 6px 16px;
-  border-radius: 30px;
-  font-weight: bold;
-  font-size: 1.2rem;
+  padding: 4px 18px;
+  border-radius: 20px;
+}
+
+.init {
+  font-weight: 700;
+  font-size: 1.3rem;
   color: #e76f51;
 }
 
-/* Botones */
+.heart-ring {
+  font-size: 1.1rem;
+}
+
+/* SNOOPY SVG */
+.snoopy-illustration {
+  width: 170px;
+  height: 170px;
+  margin: 5px 0;
+}
+
+.snoopy-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* BOTONES */
 .btn-main {
-  background: #ee9b00;
-  color: white;
+  background: #e9c46a;
+  color: #4a3e3d;
   border: none;
-  padding: 12px 28px;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 25px;
+  padding: 10px 24px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 20px;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(238, 155, 0, 0.4);
-  transition: transform 0.2s;
+  box-shadow: 0 4px 10px rgba(233, 196, 106, 0.5);
+  transition: transform 0.2s, background-color 0.2s;
+  margin-top: 5px;
 }
 
 .btn-main:hover {
   transform: scale(1.05);
+  background: #f4a261;
+  color: #fff;
 }
 
 .btn-arrow {
-  background: transparent;
+  background: #e9c46a;
+  color: #fff;
   border: none;
-  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
   cursor: pointer;
-  animation: bounce 1.5s infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: floatArrow 1.5s infinite ease-in-out;
 }
 
-/* Carta */
-.letter-card {
-  background: #ffffff;
-  border: 2px solid #e9c46a;
+@keyframes floatArrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
 }
 
-.letter-header {
-  width: 100%;
-  text-align: left;
-  font-size: 0.95rem;
-  color: #6c757d;
-  border-bottom: 1px linear #e9c46a;
-  padding-bottom: 5px;
+/* ELEMENTOS DECORATIVOS PANTALLAS */
+.snoopy-icon-top, .snoopy-hug-icon {
+  font-size: 3rem;
 }
 
-.letter-body {
-  text-align: justify;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #2b2d42;
+.flower-bouquet, .sunflowers-row {
+  font-size: 2.2rem;
   margin: 10px 0;
 }
 
-.envelope {
-  font-size: 4rem;
+.noted-badge {
+  background: #e76f51;
+  color: white;
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transform: rotate(-3deg);
+  margin-bottom: 8px;
+}
+
+.surprise-text {
+  font-family: 'Caveat', cursive;
+  font-size: 1.8rem;
+  color: #2a9d8f;
+}
+
+.envelope-box {
   cursor: pointer;
-  position: relative;
+  margin-top: 15px;
   transition: transform 0.2s;
 }
 
-.envelope:hover {
-  transform: scale(1.1);
+.envelope-box:hover {
+  transform: scale(1.08);
+}
+
+.envelope-graphic {
+  font-size: 4.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.seal {
+  position: absolute;
+  font-size: 1.5rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -20%);
 }
 
 .tap-hint {
@@ -135,13 +237,48 @@ h2 {
   margin-top: 5px;
 }
 
-/* Animaciones */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+/* CARTA FINAL */
+.letter-card {
+  background: #ffffff;
+  border: 2px solid #e9c46a;
 }
 
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(8px); }
+.garland {
+  font-size: 1rem;
+  letter-spacing: 4px;
+}
+
+.letter-header {
+  width: 100%;
+  text-align: left;
+  font-size: 0.9rem;
+  color: #6c757d;
+  border-bottom: 1px dashed #e9c46a;
+  padding-bottom: 8px;
+}
+
+.letter-title {
+  font-family: 'Caveat', cursive;
+  font-size: 2rem;
+  color: #e76f51;
+}
+
+.letter-body {
+  text-align: left;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #2b2d42;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.letter-footer {
+  font-size: 1.2rem;
+  margin-top: 5px;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
 }
